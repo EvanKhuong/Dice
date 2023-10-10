@@ -1,5 +1,5 @@
 Die steve;
-  int numTotal = 0;
+ 
         void setup()
   {
     size(500,600);
@@ -8,11 +8,14 @@ Die steve;
   }
   void draw()
   {
+    int numTotal = 0;
+    background(255);
  for (int y = 15; y<480; y+=60){
      for (int x = 15; x<480; x+=60){ 
    steve= new Die(x,y);
       steve.roll();
       steve.show();
+      numTotal+= steve.numDots;
      }   
  }
  fill(0);
@@ -21,7 +24,6 @@ Die steve;
   void mousePressed()
   {
      redraw();
-     numTotal = 0;
   }
   class Die //models one single dice cube
   {
@@ -35,7 +37,6 @@ Die steve;
       void roll()
       {
          numDots=((int)(Math.random()*6)+1);
-         numTotal+= numDots;
       }
       void show()
       {
